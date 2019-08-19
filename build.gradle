@@ -1,0 +1,44 @@
+
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'lesson4'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-parent")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.8.RELEASE'
+    compile group: 'org.webjars', name: 'jquery', version: '3.4.0'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.9.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.9'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.9'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.1.6.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.1.6.RELEASE', ext: 'pom'
+
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
